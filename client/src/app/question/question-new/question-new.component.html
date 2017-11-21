@@ -1,0 +1,76 @@
+<p><a [routerLink]="['/dashboard']">Home</a>
+
+<div class="app-div">
+	<h2>New Question</h2>
+	<form (submit)="onSubmit(); createQuestion.resetForm()" #createQuestion="ngForm">
+		<p>
+		<small [hidden]="quest.valid || (quest.untouched && !createQuestion.submitted)">
+			*Question is required and must be at least 15 characters.
+		</small>
+		</p>
+		<p>
+		<small
+			[hidden]="correct.valid || (correct.untouched && !createQuestion.submitted)">
+			*Correct Answer is required.
+		</small>
+		</p>
+		<p>
+		<small
+			[hidden]="wrong1.valid || (wrong1.untouched && !createQuestion.submitted)">
+			*Fake Answer 1 is required.
+		</small>
+		</p>
+		<p>
+		<small
+			[hidden]="wrong2.valid || (wrong2.untouched && !createQuestion.submitted)">
+			*Fake Answer 2 is required.
+		</small>
+		</p>
+		<p> Question
+		<textarea 
+			type="text" 
+			name="quest"
+			required
+			minlength="15"
+			[(ngModel)]="question.quest"
+			#quest="ngModel" 
+		></textarea>
+		</p>
+		
+		<p>
+			<label>Correct Answer: </label>
+			<input 
+				type="text"
+				name="correct"
+				required
+				[(ngModel)]="question.correct"
+				#correct="ngModel"
+			>
+		</p>
+		<p>
+			<label>Fake Answer 1: </label>
+			<input
+				type="text"
+				name="wrong1"
+				required
+				[(ngModel)]="question.wrong1"
+				#wrong1="ngModel"
+			>
+		</p>
+		<p>
+			<label>Fake Answer 2: </label>
+			<input
+				type="text"
+				name="wrong2"
+				required
+				[(ngModel)]="question.wrong2"
+				#wrong2="ngModel"
+			>
+		</p>
+		
+
+		<button type="submit" [disabled]="!createQuestion.valid">Add Question</button>
+		
+	</form>
+	<p><button onclick="history.back()">Cancel</button> 
+</div>

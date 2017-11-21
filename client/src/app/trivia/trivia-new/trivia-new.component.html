@@ -1,0 +1,16 @@
+<p>Hi, {{currentUser.name}}</p>
+<p>Choose an answer for each of the questions and submit the test once done. GOOD LUCK!!!</p>
+<form (submit)="onSubmit(); createTrivia.resetForm()" #createTrivia="ngForm">
+<small [hidden]="a1.valid || !createTrivia.submitted">
+*All answers must be filled out.
+</small>
+<table *ngFor="let question of questions">
+	<p>{{question.quest}}</p>
+	<p><input type="radio" name="a1" value="{{question.wrong1}}">{{question.wrong1}}</p>
+	<p><input type="radio" name="a2" value="{{question.correct}}">{{question.correct}}</p>
+	<p><input type="radio" name="a3" value="{{question.wrong2}}">{{question.wrong2}}</p>
+</table>
+<button type="submit" [disabled]="!createTrivia.valid">Submit</button>
+</form>
+
+<button onclick="history.back()">Cancel</button>

@@ -1,0 +1,30 @@
+.play {
+	border: solid black 1px;
+	text-align: center;
+	margin-left: 300px;
+	height: 100px;
+	width: 300px;
+}
+.play button {
+	margin-top: 10px;
+	width: 100px;
+	height: 30px;
+	background-color: blue;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    padding: 8px 8px 8px 18px;
+}
+
+
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
